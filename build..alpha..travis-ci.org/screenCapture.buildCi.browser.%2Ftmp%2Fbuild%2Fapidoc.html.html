@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/electron-userland/electron-packager"
-
-    >electron-packager (v8.6.0)</a>
+    <a href="https://github.com/electron-userland/electron-packager">electron-packager (v8.6.0)</a>
 </h1>
 <h4>Package and distribute your Electron app with OS-specific bundles (.app, .exe etc) via JS or CLI</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.electron-packager">module electron-packager</a><ol>
 
@@ -121,22 +114,22 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function generateIgnores(opts) {
-  if (typeof (opts.ignore) !== &#x27;function&#x27;) {
+  if (typeof (opts.ignore) !== 'function') {
     // Avoid a circular require that breaks things
-    const common = require(&#x27;./common&#x27;)
+    const common = require('./common')
 
-    if (opts.ignore &#x26;&#x26; !Array.isArray(opts.ignore)) opts.ignore = [opts.ignore]
+    if (opts.ignore &amp;&amp; !Array.isArray(opts.ignore)) opts.ignore = [opts.ignore]
     opts.ignore = (opts.ignore) ? opts.ignore.concat(DEFAULT_IGNORES) : [].concat(DEFAULT_IGNORES)
-    if (process.platform === &#x27;linux&#x27;) {
+    if (process.platform === 'linux') {
       opts.ignore.push(common.baseTempDir(opts))
     }
 
-    debug(&#x27;Ignored path regular expressions:&#x27;, opts.ignore)
+    debug('Ignored path regular expressions:', opts.ignore)
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
     if (/ Helper$/.test(opts.name)) {
-return cb(new Error(&#x27;Application names cannot end in &#x22; Helper&#x22; due to limitations on macOS&#x27;))
+return cb(new Error('Application names cannot end in " Helper" due to limitations on macOS'))
     }
 
     debug(`Application name: ${opts.name}`)
@@ -164,7 +157,7 @@ cb(null, appPaths.filter(function (appPath) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function generateOutIgnores(opts) {
   // Avoid a circular require that breaks things
-  const common = require(&#x27;./common&#x27;)
+  const common = require('./common')
 
   let normalizedOut = opts.out ? path.resolve(opts.out) : null
   let outIgnores = []
@@ -183,7 +176,7 @@ cb(null, appPaths.filter(function (appPath) {
     outIgnores.push(normalizedOut)
   }
 
-  debug(&#x27;Ignored paths based on the out param:&#x27;, outIgnores)
+  debug('Ignored paths based on the out param:', outIgnores)
 
   return outIgnores
 }</pre></li>
@@ -203,13 +196,13 @@ cb(null, appPaths.filter(function (appPath) {
   var ignore = opts.ignore || []
   var ignoreFunc = null
 
-  if (typeof (ignore) === &#x27;function&#x27;) {
-    ignoreFunc = file =&#x3e; { return !ignore(file) }
+  if (typeof (ignore) === 'function') {
+    ignoreFunc = file =&gt; { return !ignore(file) }
   } else {
     if (!Array.isArray(ignore)) ignore = [ignore]
 
     ignoreFunc = function filterByRegexes (file) {
-      for (var i = 0; i &#x3c; ignore.length; i++) {
+      for (var i = 0; i &lt; ignore.length; i++) {
         if (file.match(ignore[i])) {
           return false
         }
@@ -228,9 +221,9 @@ cb(null, appPaths.filter(function (appPath) {
 
     var name = file.split(path.resolve(opts.dir))[1]
 
-    if (path.sep === &#x27;\\&#x27;) {
+    if (path.sep === '\\') {
       // convert slashes so unix-format ignores work
-      name = name.replace(/\\/g, &#x27;/&#x27;)
+      name = name.replace(/\\/g, '/')
     }
 
     return ignoreFunc(name)
@@ -248,3 +241,4 @@ cb(null, appPaths.filter(function (appPath) {
     ]
 </div>
 </div>
+</body></html>
