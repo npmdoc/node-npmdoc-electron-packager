@@ -1,6 +1,6 @@
 # npmdoc-electron-packager
 
-#### api documentation for  [electron-packager (v8.6.0)](https://github.com/electron-userland/electron-packager)  [![npm package](https://img.shields.io/npm/v/npmdoc-electron-packager.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-electron-packager) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-electron-packager.svg)](https://travis-ci.org/npmdoc/node-npmdoc-electron-packager)
+#### basic api documentation for  [electron-packager (v8.6.0)](https://github.com/electron-userland/electron-packager)  [![npm package](https://img.shields.io/npm/v/npmdoc-electron-packager.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-electron-packager) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-electron-packager.svg)](https://travis-ci.org/npmdoc/node-npmdoc-electron-packager)
 
 #### Package and distribute your Electron app with OS-specific bundles (.app, .exe etc) via JS or CLI
 
@@ -21,23 +21,15 @@
 ```json
 
 {
-    "name": "electron-packager",
-    "version": "8.6.0",
-    "description": "Package and distribute your Electron app with OS-specific bundles (.app, .exe etc) via JS or CLI",
-    "main": "index.js",
+    "author": {
+        "name": "max ogden"
+    },
     "bin": {
         "electron-packager": "cli.js"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/electron-userland/electron-packager.git"
-    },
-    "author": "max ogden",
-    "license": "BSD-2-Clause",
     "bugs": {
         "url": "https://github.com/electron-userland/electron-packager/issues"
     },
-    "homepage": "https://github.com/electron-userland/electron-packager",
     "dependencies": {
         "asar": "^0.13.0",
         "debug": "^2.2.0",
@@ -54,6 +46,7 @@
         "sanitize-filename": "^1.6.0",
         "semver": "^5.3.0"
     },
+    "description": "Package and distribute your Electron app with OS-specific bundles (.app, .exe etc) via JS or CLI",
     "devDependencies": {
         "buffer-equal": "^1.0.0",
         "coveralls": "^2.11.6",
@@ -69,19 +62,16 @@
         "run-waterfall": "^1.1.1",
         "tape": "^4.0.0"
     },
-    "engines": {
-        "node": ">= 4.0"
-    },
-    "scripts": {
-        "coveralls": "nyc report --reporter=text-lcov | coveralls",
-        "lint": "eslint .",
-        "pretest": "rimraf test/work",
-        "test": "npm run lint && nyc tape test"
-    },
     "directories": {
         "test": "test"
     },
-    "keywords": [],
+    "dist": {
+        "shasum": "23a4233cb573389c0f728b4e87ef74416d9933e9",
+        "tarball": "https://registry.npmjs.org/electron-packager/-/electron-packager-8.6.0.tgz"
+    },
+    "engines": {
+        "node": ">= 4.0"
+    },
     "eslintConfig": {
         "extends": [
             "plugin:tape/recommended",
@@ -98,7 +88,54 @@
                 "error"
             ]
         }
-    }
+    },
+    "gitHead": "1c2f3ea4c4f4c724262108e628c37f165ed6f0d9",
+    "homepage": "https://github.com/electron-userland/electron-packager",
+    "keywords": [],
+    "license": "BSD-2-Clause",
+    "main": "index.js",
+    "maintainers": [
+        {
+            "name": "feross"
+        },
+        {
+            "name": "jlord"
+        },
+        {
+            "name": "jsdnxx"
+        },
+        {
+            "name": "kfranqueiro"
+        },
+        {
+            "name": "malept"
+        },
+        {
+            "name": "maxogden"
+        },
+        {
+            "name": "sindresorhus"
+        },
+        {
+            "name": "stefanbuck"
+        },
+        {
+            "name": "zeke"
+        }
+    ],
+    "name": "electron-packager",
+    "optionalDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/electron-userland/electron-packager.git"
+    },
+    "scripts": {
+        "coveralls": "nyc report --reporter=text-lcov | coveralls",
+        "lint": "eslint .",
+        "pretest": "rimraf test/work",
+        "test": "npm run lint && nyc tape test"
+    },
+    "version": "8.6.0"
 }
 ```
 
