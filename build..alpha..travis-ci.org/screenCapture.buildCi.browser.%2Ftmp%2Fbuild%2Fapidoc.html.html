@@ -180,7 +180,23 @@ cb(null, appPaths.filter(function (appPath) {
 
   return outIgnores
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    t.ok(opts.ignore.indexOf(expected) === -1, 'temporary dir not in opts.ignore')
+  }
+
+  t.end()
+})
+
+test('generateOutIgnores ignores all possible platform/arch permutations', (t) =&gt; {
+  let ignores = ignore.<span class="apidocCodeKeywordSpan">generateOutIgnores</span>({name: 'test'})
+  t.equal(ignores.length, common.platforms.length * common.archs.length)
+  t.end()
+})
+
+util.testSinglePlatform('ignore default test: .o files', createIgnoreTest, null, 'ignore.o')
+util.testSinglePlatform('ignore default test: .obj files', createIgnoreTest, null, 'ignore.obj')
+util.testSinglePlatform('ignore test: string in array', createIgnoreTest, ['ignorethis'],
+...</pre></li>
     </ul>
 
 
@@ -229,7 +245,24 @@ cb(null, appPaths.filter(function (appPath) {
     return ignoreFunc(name)
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // `deref-symlinks` is the default value so we'll use it unless
+  // `derefSymlinks` is defined.
+  var shouldDeref = opts['deref-symlinks']
+  if (opts.derefSymlinks !== undefined) {
+    shouldDeref = opts.derefSymlinks
+  }
+
+  fs.copy(opts.dir, appPath, {filter: ignore.<span class="apidocCodeKeywordSpan">userIgnoreFilter</span>(opts), dereference: shouldDeref
+}, cb)
+},
+function (cb) {
+  var afterCopyHooks = (opts.afterCopy || []).map(function (afterCopyFn) {
+    return function (cb) {
+      afterCopyFn(appPath, opts.electronVersion, opts.platform, opts.arch, cb)
+    }
+  })
+...</pre></li>
     </ul>
 
 
